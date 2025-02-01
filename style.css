@@ -1,0 +1,394 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Navbar */
+  /* Navbar */
+nav {
+    background: rgba(51, 51, 51, 0.9); /* Semi-transparent background */
+    color: #fff;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Blur effect */
+   
+  }
+  
+  nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6f61;
+    text-decoration: none;
+   
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+  }
+  
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ff6f61;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #ff6f61;
+  }
+  
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: url('assets/images/background2.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .hero p {
+    font-size: 1.5rem;
+    animation: fadeIn 3s ease-in-out;
+  }
+  
+  .hero .btn {
+    background: #ff6f61;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    animation: fadeIn 4s ease-in-out;
+  }
+  
+
+/* Side Panel Styles dengan Animasi Smooth dan Rounded Corners */
+#side-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transform: translateX(100%);  /* Sembunyi di luar layar */
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    border-radius: 20px 0 0 20px;
+  }
+  
+  /* Saat class 'active' ditambah, side panel akan muncul */
+  #side-panel.active {
+    transform: translateX(0);  /* Muncul ke layar */
+  }
+  
+  /* Tombol Close */
+  .close-btn {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #666;
+    transition: color 0.3s ease;
+  }
+  
+  .close-btn:hover {
+    color: #000;
+  }
+  
+  /* Konten Panel */
+  .panel-content h2 {
+    margin-top: 50px;
+    font-size: 26px;
+    color: #333;
+  }
+  
+  .panel-content p {
+    margin: 20px 0;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* Tools Styling */
+  #panel-tools .tool {
+    display: inline-block;
+    background-color: #e0e0e0;
+    padding: 8px 12px;
+    border-radius: 12px;  /* Rounded tool tags */
+    margin: 5px 5px 5px 0;
+    font-size: 14px;
+    color: #333;
+    transition: background-color 0.3s ease;
+  }
+  
+  #panel-tools .tool:hover {
+    background-color: #d1d1d1;
+  }
+
+  /* Background Overlay */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 900;
+  }
+  
+  /* Saat panel aktif, overlay muncul */
+  .side-panel.active ~ #overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+
+/* Overlay background tetap */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 900;
+  }
+  
+  /* Styling konten dalam overlay */
+  .overlay-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    animation: fadeInUp 0.5s ease;  /* Animasi muncul */
+  }
+  
+  /* Gambar dalam overlay */
+  .overlay-content img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;  /* Biar gambar bulat */
+    margin-bottom: 15px;
+  }
+  
+  /* Button untuk nutup overlay */
+  #overlay-close-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #overlay-close-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Animasi konten */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+
+  /* About Section */
+  .about {
+    padding: 4rem 0;
+    background: #fff;
+  }
+  
+  .about-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .about-content img {
+    width: 200px;
+    border-radius: 50%;
+    animation: slideInLeft 1s ease-in-out;
+  }
+  
+  .about-content p {
+    font-size: 1.1rem;
+    animation: slideInRight 1s ease-in-out;
+  }
+  
+  /* Projects Section */
+  .projects {
+    padding: 4rem 0;
+    background: #f4f4f9;
+  }
+  
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .project-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .project-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .project-card h3 {
+    margin: 1rem 0;
+  }
+  
+  .project-card .btn {
+    background: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  /* Contact Section */
+  .contact {
+    padding: 4rem 0;
+    background: #fff;
+    text-align: center;
+  }
+  
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .contact-links img {
+    width: 40px;
+    transition: transform 0.3s;
+  }
+  
+  .contact-links img:hover {
+    transform: scale(1.2);
+  }
+  
+/* Tools Section */
+.tools {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+  
+  .tool {
+    background: #ff6f61;
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  /* Project Category */
+  .project-category {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: #333;
+    border-bottom: 2px solid #ff6f61;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+
+
+  /* Footer */
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+  
+  @keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
